@@ -1,0 +1,148 @@
+﻿@model  Court_Application.Models.Writ_Document
+@{
+    
+    ViewData["Title"] = "WriteDocument";
+}
+
+<div class="text-left">
+    <h5 class="display-6">APPELLATE SIDE WRIT PACKAGE</h5>
+   
+</div>
+<div class="text-left">
+   
+    @using (Html.BeginForm("DownloadWritFile", "document", FormMethod.Post))
+    {
+        <table cellpadding="5">
+            <tr>
+                <td>
+                    Petitioner Address:
+                </td>
+                <td>
+                    @Html.TextAreaFor(Model => Model.Petitioner_Address)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Respondents Address:
+                </td>
+
+                <td>
+                    @Html.TextAreaFor(Model => Model.Respondents_Address)
+                </td>
+            </tr>
+            <tr>
+               <td>
+                    Main Prayer:
+               </td>
+                <td>
+                    @Html.TextAreaFor(Model=>Model.Main_Prayer)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Interfm Prayer
+                </td>
+                <td>
+                    @Html.TextAreaFor(Model=>Model.Interfm_Prayer)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    1St Petitioner's Name:
+                </td>
+                <td>
+                   @Html.TextBoxFor(Model=>Model.First_petioner_Name)
+                </td>
+                <td>
+                    1St Respondent's Name:
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.First_Respondents_Name)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    District Name:
+                </td>
+                <td>
+
+                    @Html.TextBoxFor(Model => Model.District_Name)
+
+                </td>
+                <td>
+                    Date of  Filling:
+                </td>
+                <td>
+
+                    @Html.TextBoxFor(Model => Model.Date_of_Filling)
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    verification:
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model=>Model.verification)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Lower Cout Name:
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Lower_Court_Name)
+                </td>
+                <td>
+                    Lower Cout Case Number:
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Lower_Court_Case_Number)
+                </td>
+                <td>
+                    Lower Court OrderDate:
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Lower_Court_Order_Date)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Counsel Address:
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.counsel_Address)
+                </td>
+                <td>
+                    Counsel Code:
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.counsel_Name)
+                </td>
+            </tr>
+           <tr>
+            
+                <td>
+                    Category:
+                </td>
+                <td>
+                    @Html.DropDownListFor(m => m.SelectedCategory, (List<SelectListItem>)ViewBag.Category, "Select Category")
+                </td>
+                <td>
+                    Year:
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.year)
+                </td>
+            </tr>
+
+            
+
+        </table>
+        <br />
+        <input type="submit"  value="Submit"/>
+        <input type="submit" value="Quit" />
+    }
+
+</div>
+

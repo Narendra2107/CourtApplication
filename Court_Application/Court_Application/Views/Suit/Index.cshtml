@@ -1,0 +1,113 @@
+﻿@model Court_Application.Models.Suit_Document
+@{
+    ViewData["Title"] = "SuitDocument";
+}
+
+<div class="text-center">
+    <h5 class="display-4">ORGINAL SIDE SUIT PACKAGE</h5>
+  
+</div>
+<div class="text-left">
+    @using (Html.BeginForm("DownloadSuitFile","document", FormMethod.Post))
+    {
+        <table cellpadding="5">
+            <tr>
+                <td>
+                    Plaintiffs Address:
+                </td>
+                <td>
+                    @Html.TextAreaFor(Model=>Model.Plaintiffs_Address)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Defendant's Address:
+                </td>
+               
+                <td>
+                    @Html.TextAreaFor(Model => Model.Defendants_Address)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    1St Plaintiffs Name:
+                </td>
+                <td>
+                    @Html.TextAreaFor(Model=>Model.First_Plaintiffs_Name)
+                </td>
+                <td>
+                    1StDefendant's Name:
+                </td>
+                <td>
+                    @Html.TextAreaFor(Model=>Model.FirstDefendants_Name)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    verification:
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model=>Model.verification)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Court Name :
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model=>Model.Court_Name)
+                </td>
+                <td>
+                    DateFilling:
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model=>Model.DateFilling)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Counsel Name and Address:
+
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model=>Model.Counsel_Name_Address)
+                </td>
+                <td>
+                    Counsel Name:
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model=>Model.Counsel_Name)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Category:
+                </td>
+                <td>
+                    @Html.DropDownListFor(m => m.SelectedCategory, (List<SelectListItem>)ViewBag.Category, "Select Category")
+                </td>
+                <td>
+                    Place:
+                </td>
+                <td>
+                  @Html.TextBoxFor(Model=>Model.Place)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Year:
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model=>Model.Year)
+                </td>
+                <td>
+                    <input type="submit" value="Submit" />
+                </td>
+            </tr>
+
+
+        </table>
+    }
+
+
+</div>
