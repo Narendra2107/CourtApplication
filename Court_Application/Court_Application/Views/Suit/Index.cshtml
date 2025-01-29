@@ -1,114 +1,83 @@
 ﻿@model Court_Application.Models.Suit_Document
 @{
-    Layout = "_userLayout";
-    ViewData["Title"] = "SuitDocument";
+	Layout = "_userLayout";
+	ViewData["Title"] = "SuitDocument";
 }
 
-<div class="text-center">
-    <h5 class="display-4">ORGINAL SIDE SUIT PACKAGE</h5>
-  
-</div>
-<div class="text-left">
-    @using (Html.BeginForm("DownloadSuitFile","document", FormMethod.Post))
-    {
-        <table cellpadding="5">
-            <tr>
-                <td>
-                    Plaintiffs Address:
-                </td>
-                <td>
-                    @Html.TextAreaFor(Model=>Model.Plaintiffs_Address)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Defendant's Address:
-                </td>
-               
-                <td>
-                    @Html.TextAreaFor(Model => Model.Defendants_Address)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1St Plaintiffs Name:
-                </td>
-                <td>
-                    @Html.TextAreaFor(Model=>Model.First_Plaintiffs_Name)
-                </td>
-                <td>
-                    1StDefendant's Name:
-                </td>
-                <td>
-                    @Html.TextAreaFor(Model=>Model.FirstDefendants_Name)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    verification:
-                </td>
-                <td>
-                    @Html.TextBoxFor(Model=>Model.verification)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Court Name :
-                </td>
-                <td>
-                    @Html.TextBoxFor(Model=>Model.Court_Name)
-                </td>
-                <td>
-                    DateFilling:
-                </td>
-                <td>
-                    @Html.TextBoxFor(Model=>Model.DateFilling)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Counsel Name and Address:
-
-                </td>
-                <td>
-                    @Html.TextBoxFor(Model=>Model.Counsel_Name_Address)
-                </td>
-                <td>
-                    Counsel Name:
-                </td>
-                <td>
-                    @Html.TextBoxFor(Model=>Model.Counsel_Name)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Category:
-                </td>
-                <td>
-                    @Html.DropDownListFor(m => m.SelectedCategory, (List<SelectListItem>)ViewBag.Category, "Select Category")
-                </td>
-                <td>
-                    Place:
-                </td>
-                <td>
-                  @Html.TextBoxFor(Model=>Model.Place)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Year:
-                </td>
-                <td>
-                    @Html.TextBoxFor(Model=>Model.Year)
-                </td>
-                <td>
-                    <input type="submit" value="Submit" />
-                </td>
-            </tr>
-
-
-        </table>
-    }
-
-
+<div class="container mt-5">
+	<div class="text-center mb-4">
+		<h3 class="display-4">ORIGINAL SIDE SUIT PACKAGE</h3>
+	</div>
+	<div class="text-left">
+		@using (Html.BeginForm("DownloadSuitFile", "document", FormMethod.Post))
+		{
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Plaintiffs Address:</label>
+				<div class="col-sm-10">
+					@Html.TextAreaFor(Model => Model.Plaintiffs_Address, new { @class = "form-control" })
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Defendant's Address:</label>
+				<div class="col-sm-10">
+					@Html.TextAreaFor(Model => Model.Defendants_Address, new { @class = "form-control" })
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">1st Plaintiff's Name:</label>
+				<div class="col-sm-4">
+					@Html.TextAreaFor(Model => Model.First_Plaintiffs_Name, new { @class = "form-control" })
+				</div>
+				<label class="col-sm-2 col-form-label">1st Defendant's Name:</label>
+				<div class="col-sm-4">
+					@Html.TextAreaFor(Model => Model.FirstDefendants_Name, new { @class = "form-control" })
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Verification:</label>
+				<div class="col-sm-10">
+					@Html.TextBoxFor(Model => Model.verification, new { @class = "form-control" })
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Court Name:</label>
+				<div class="col-sm-4">
+					@Html.TextBoxFor(Model => Model.Court_Name, new { @class = "form-control" })
+				</div>
+				<label class="col-sm-2 col-form-label">Date Filling:</label>
+				<div class="col-sm-4">
+					@Html.TextBoxFor(Model => Model.DateFilling, new { @class = "form-control" })
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Counsel Name and Address:</label>
+				<div class="col-sm-4">
+					@Html.TextBoxFor(Model => Model.Counsel_Name_Address, new { @class = "form-control" })
+				</div>
+				<label class="col-sm-2 col-form-label">Counsel Name:</label>
+				<div class="col-sm-4">
+					@Html.TextBoxFor(Model => Model.Counsel_Name, new { @class = "form-control" })
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Category:</label>
+				<div class="col-sm-4">
+					@Html.DropDownListFor(m => m.SelectedCategory, (List<SelectListItem>)ViewBag.Category, "Select Category", new { @class = "form-control" })
+				</div>
+				<label class="col-sm-2 col-form-label">Place:</label>
+				<div class="col-sm-4">
+					@Html.TextBoxFor(Model => Model.Place, new { @class = "form-control" })
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Year:</label>
+				<div class="col-sm-4">
+					@Html.TextBoxFor(Model => Model.Year, new { @class = "form-control" })
+				</div>
+				<div class="col-sm-6 text-right">
+					<input type="submit" value="Submit" class="btn btn-primary" />
+				</div>
+			</div>
+		}
+	</div>
 </div>

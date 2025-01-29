@@ -12,7 +12,7 @@ namespace Court_Application.Controllers
 
 		public IActionResult LogOut()
 		{
-			return View("Login");
+			return RedirectToAction("Logout", "Login");
 		}
 	}
 }
